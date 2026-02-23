@@ -1,8 +1,6 @@
 body {
   background-color: #f5f5f5;
 }
-<<<<<<< HEAD
-
 .date-wrapper {
   position: relative;
   display: inline-block;
@@ -26,8 +24,3 @@ input[type="date"] {
   background-repeat: no-repeat;
   pointer-events: none;
 }
-=======
-#inputs {border-radius: 
-
-}
->>>>>>> 7ef7a3f0c71ca40b2667a268f422abfde3f4f639
