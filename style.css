@@ -84,7 +84,6 @@ input[type="date"] {
 }
 .bd-icon path {
   fill: #f5f5f5;
-}
 .bd-content {
   margin-left: 1.5rem;
   margin-top: -1.5rem;
@@ -96,6 +95,6 @@ input[type="date"] {
 .bd-title {
   font-size: x-large;
 }
-.bd-info {
-  font-size: large;
+.bd-info { 
+ font-size:large
 }
