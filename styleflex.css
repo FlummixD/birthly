@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  height: 100vh;
+  background-color: lightblue;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#a {
+  background: blue;
+}
+#b {
+  background: red;
+}
+#c {
+  background: green;
+}
+
+.container div {
+  color: white;
+  width: 10rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
