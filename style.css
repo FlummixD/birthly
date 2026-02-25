@@ -86,12 +86,12 @@ input[type="date"] {
   fill: #f5f5f5;
 }
 .bd-content {
+  display:flex;
   margin-left: 1.5rem;
   margin-top: -1.5rem;
 }
 .bd-age {
-  margin-left: 14rem;
-  margin-top: -3.5rem;
+  justify-self:right;
 }
 .bd-title {
   font-size: x-large;
