@@ -24,3 +24,9 @@ input[type="date"] {
   background-repeat: no-repeat;
   pointer-events: none;
 }
+
+#inputs {
+  background-color:#C3BCF1;
+  width:374;
+  height:63;
+
