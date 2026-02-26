@@ -30,7 +30,7 @@ Du kannst du Punkte abhacken in dem du ein x in die Klammer machst:
 - [ ] return
 
 Mini-Projekt:
-Alter aus Geburtsjahr berechnen
+Eine Funktion die Zwei Datumszahlen reinkriegt und die Jahresdifferenz zurückgibt.
 
 ---
 
