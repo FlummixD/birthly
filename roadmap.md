@@ -10,24 +10,24 @@ Du kannst du Punkte abhacken in dem du ein x in die Klammer machst:
 ## Phase 1 – JavaScript Basics
 
 ### Variablen
-- [ ] let
-- [ ] const
-- [ ] Datentypen (string, number, boolean)
+- [X] let
+- [X] const
+- [X] Datentypen (string, number, boolean)
 
 ### Operatoren
-- [ ] + - * /
-- [ ] ===
-- [ ] > < >= <=
-- [ ] && ||
+- [X] + - * /
+- [X] ===
+- [X] > < >= <=
+- [X] && ||
 
 ### Bedingungen
-- [ ] if / else
-- [ ] Ternary Operator
+- [X] if / else
+- [X] Ternary Operator
 
 ### Funktionen
-- [ ] function keyword
-- [ ] Arrow functions
-- [ ] return
+- [X] function keyword
+- [X] Arrow functions
+- [X] return
 
 Mini-Projekt:
 Eine Funktion die Zwei Datumszahlen reinkriegt und die Jahresdifferenz zurückgibt.
