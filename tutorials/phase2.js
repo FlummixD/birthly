@@ -9,14 +9,15 @@
 //     console.log(students[i] + ":", alter[i]);
 // }
 
-const student = {
-    name: "",
-    age: "",
-    gpa: ""
-}
-
-
-
-students = [{ name: "Mattis", age: 15 }, { name: "Bennet", age: 14 }]
-
-console.log(students[0]["age"])
+let persons = [
+    {
+        name: "Mattis",
+        birthday: "2010-09-11",
+    }
+]
+console.log("Zuerst:", persons)
+persons.push({
+    name: "Bennet",
+    birthday: "2011-02-10",
+})
+console.log("Danach:", persons)

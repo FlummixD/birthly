@@ -11,13 +11,13 @@
       <button id="add">
         <img id="add-icon" src="icons/add.svg" alt="+" />
       </button>
-      <input type="text" name="name" id="name" placeholder="Name" />
+      <input type="text" name="name" id="name" placeholder="Name" required />
       <div class="date-wrapper">
-        <input type="date" id="my-date" />
+        <input type="date" id="my-date" name="birthday" required />
         <div class="custom-icon"></div>
       </div>
     </form>
-    <div id="title"><h2>Nächsten Geburtstage:</h2></div>
+    <div id="title"><h2 id="next-bd">Nächsten Geburtstage:</h2></div>
     <div id="dates">
       <div class="bd left">
         <svg
@@ -78,5 +78,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
