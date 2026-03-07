@@ -17,6 +17,7 @@ let persons = [
     },
 ];
 
+const CACHE_KEY = "birthdays";
 
 let inputs = document.getElementById("inputs");
 
@@ -40,11 +41,22 @@ inputs.addEventListener("submit", (event) => {
     inputs.reset();
 
     updateBirthdays();
-    updateBirthdays()
+    loadToCache();
 })
 
 function stripTime(date) {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
+function loadToCache() {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(persons));
+}
+
+function loadFromCache() {
+    persons = JSON.parse(localStorage.getItem(CACHE_KEY));
+    for (let i = 0; i < persons.length; i = i + 1) {
+        persons[i].birthday = new Date(persons[i].birthday);
+    }
 }
 
 // Funktion daysUntilBirthday(birthday) {}
@@ -140,4 +152,5 @@ function updateBirthdays() {
     datesWrapper.innerHTML = insidehtml;
 }
 
+loadFromCache();
 updateBirthdays();
