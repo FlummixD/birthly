@@ -1,21 +1,4 @@
-let persons = [
-    {
-        name: "Bennet",
-        birthday: new Date("2011-02-10"),
-    },
-    {
-        name: "Mattis",
-        birthday: new Date("2010-11-09"),
-    },
-    {
-        name: "Heute",
-        birthday: stripTime(new Date()),
-    },
-    {
-        name: "Morgen",
-        birthday: new Date("2010-03-07"),
-    },
-];
+let persons = [];
 
 const CACHE_KEY = "birthdays";
 
@@ -43,7 +26,14 @@ inputs.addEventListener("submit", (event) => {
     updateBirthdays();
     loadToCache();
 })
+// Person entfernen
+function deletePerson(personIndex) {
+    // Funktion array.splice(index, anzahl)
+    persons.splice(personIndex, 1);
 
+    updateBirthdays();
+    loadToCache();
+}
 function stripTime(date) {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 }
@@ -53,13 +43,21 @@ function loadToCache() {
 }
 
 function loadFromCache() {
-    persons = JSON.parse(localStorage.getItem(CACHE_KEY));
-    for (let i = 0; i < persons.length; i = i + 1) {
+    let data = localStorage.getItem(CACHE_KEY);
+
+    if (!data) {
+        persons = [];
+        return;
+    }
+
+    persons = JSON.parse(data);
+
+    for (let i = 0; i < persons.length; i++) {
         persons[i].birthday = new Date(persons[i].birthday);
     }
 }
 
-// Funktion daysUntilBirthday(birthday) {}
+// Funktion daysUntilBirthday(birthday)
 function daysUntilBirthday(bd) {
     let today = stripTime(new Date());
     let birthday = new Date(bd);
@@ -92,10 +90,10 @@ function updateBirthdays() {
         let dateDistance = daysUntilBirthday(new Date(persons[i].birthday));
 
         let distanceText;
-        if (dateDistance === 0) {
+        if (dateDistance === 1) {
             distanceText = "Heute"
         }
-        else if (dateDistance === 1) {
+        else if (dateDistance === 2) {
             distanceText = "Morgen"
         }
         else {
@@ -119,33 +117,23 @@ function updateBirthdays() {
 
         insidehtml += `
         <div class="bd ${((i + 1) % 2 === 0) ? "right" : ""} ">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="bd-icon"
-        >
-          <g clip-path="url(#clip0_11_1317)">
-            <path
-              d="M16 13H13C12.45 13 12 13.45 12 14V17C12 17.55 12.45 18 13 18H16C16.55 18 17 17.55 17 17V14C17 13.45 16.55 13 16 13ZM16 3V4H8V3C8 2.45 7.55 2 7 2C6.45 2 6 2.45 6 3V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4H18V3C18 2.45 17.55 2 17 2C16.45 2 16 2.45 16 3ZM18 20H6C5.45 20 5 19.55 5 19V9H19V19C19 19.55 18.55 20 18 20Z"
-              fill="#323232"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_11_1317">
-              <rect width="24" height="24" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-        <div class="bd-content left">
-          <div class="bd-col">
-            <h3 class="bd-title">${persons[i]["name"]}</h3>
-            <div class="bd-info">${String(persons[i]["birthday"].getDate()).padStart(2, "0")}.${String(persons[i]["birthday"].getMonth() + 1).padStart(2, "0")}.${String(persons[i]["birthday"].getFullYear()).slice(-2)} ${distanceText}</div >
-          </div >
-    <h3 class="bd-age">${age}</h3>
-        </div >
+            <h3 class="bd-age">${age}</h3>
+            <div class="bd-content left">
+                <div class="bd-col">
+                    <div class="bd-title">${persons[i]["name"]}</div>
+                    <div class="bd-info">${String(persons[i]["birthday"].getDate()).padStart(2, "0")}.${String(persons[i]["birthday"].getMonth() + 1).padStart(2, "0")}.${String(persons[i]["birthday"].getFullYear()).slice(-2)} ${distanceText}</div >
+                </div >
+                <svg onclick="deletePerson(${i})" class="delete" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_55_71)">
+                    <path d="M8.50016 26.9167C8.50016 28.475 9.77516 29.75 11.3335 29.75H22.6668C24.2252 29.75 25.5002 28.475 25.5002 26.9167V12.75C25.5002 11.1917 24.2252 9.91667 22.6668 9.91667H11.3335C9.77516 9.91667 8.50016 11.1917 8.50016 12.75V26.9167ZM12.7502 12.75H21.2502C22.0293 12.75 22.6668 13.3875 22.6668 14.1667V25.5C22.6668 26.2792 22.0293 26.9167 21.2502 26.9167H12.7502C11.971 26.9167 11.3335 26.2792 11.3335 25.5V14.1667C11.3335 13.3875 11.971 12.75 12.7502 12.75ZM21.9585 5.66667L20.9527 4.66083C20.6977 4.40583 20.3293 4.25 19.961 4.25H14.0393C13.671 4.25 13.3027 4.40583 13.0477 4.66083L12.0418 5.66667H8.50016C7.721 5.66667 7.0835 6.30417 7.0835 7.08333C7.0835 7.8625 7.721 8.5 8.50016 8.5H25.5002C26.2793 8.5 26.9168 7.8625 26.9168 7.08333C26.9168 6.30417 26.2793 5.66667 25.5002 5.66667H21.9585Z" fill="white"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_55_71">
+                    <rect width="34" height="34" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </div >
         </div >
     `;
     }

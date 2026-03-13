@@ -1,110 +1,167 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 * {
-  font-family: "Nunito", sans-serif;
-  margin: 0;
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+}
+
+/* Background */
+body {
+    background: url("background.png");
+    background-size: 100vw;
+    margin: 0;
+    background-color: #f5f5f5;
 }
 
 /* Inputs */
-body {
-  background-color: #f5f5f5;
-  margin: 0;
-}
 .date-wrapper {
-  position: relative;
-  display: inline-block;
-  margin-left: auto;
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
 }
 
 input[type="date"] {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
 }
 
 .custom-icon {
-  width: 2rem;
-  height: 2rem;
-  background-image: url("icons/event.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("icons/event.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 #inputs {
-  display: flex;
-  background-color: #c3bcf1;
-  justify-content: left;
-  border-radius: 0px 30px 30px 0px;
-  padding: 0.75rem 1rem;
-  margin-top: 10svh;
-  gap: 0.5rem;
-  width: calc(90vw - 1rem);
+    display: flex;
+    background-color: #c3bcf1;
+    justify-content: left;
+    border-radius: 0px 30px 30px 0px;
+    padding: 0.75rem 1rem;
+    margin-top: 10svh;
+    gap: 0.5rem;
+    width: calc(90vw - 1rem);
 }
 #name {
-  flex-grow: 1;
-  background-color: #c3bcf1;
-  border: none;
-  font-size: large;
+    flex-grow: 1;
+    background-color: #c3bcf1;
+    border: none;
+    font-size: large;
 }
 #add {
-  background-color: #c3bcf1;
-  border: none;
+    background-color: #c3bcf1;
+    border: none;
 }
 #name:focus {
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 #name:active {
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 /* Titel */
 #title {
-  background-color: #2d3142;
-  width: calc(90vw - 2.7rem);
-  margin-top: 6svh;
-  border-radius: 30px 0px 0px 30px;
-  padding: 1rem 2rem;
-  margin-left: auto;
+    background-color: #2d3142;
+    width: calc(90vw - 2.7rem);
+    margin-top: 6svh;
+    border-radius: 30px 0px 0px 30px;
+    padding: 1rem 2rem;
+    margin-left: auto;
 }
 #title h2 {
-  color: #f5f5f5;
+    color: #f5f5f5;
 }
 
 /* Geburtstage */
-.bd-icon path {
-  fill: #f5f5f5;
-}
 .bd {
-  display: flex;
-  background-color: #2d3142;
-  border-radius: 0px 30px 30px 0px;
-  margin-top: 5.5svh;
-  padding: 1rem 1.25rem;
-  color: #f5f5f5;
-  width: calc(90vw - 1.25rem);
-  gap: 1rem;
+    display: flex;
+    background-color: #2d3142;
+    border-radius: 0px 30px 30px 0px;
+    margin-top: 5.5svh;
+    padding: 1rem 1.25rem;
+    color: #f5f5f5;
+    width: calc(90vw - 1.25rem);
+    gap: 1rem;
 }
 .bd-content {
-  display: flex;
-  flex-grow: 1;
-  margin-left: auto;
-  gap: 0.5rem;
+    display: flex;
+    flex-grow: 1;
+    margin-left: auto;
+    gap: 0.5rem;
 }
 .bd-title {
-  font-size: 24;
-  margin-bottom: 0.5rem;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
 }
 .bd-age {
-  margin-left: auto;
-  margin-right: 0.75rem;
+    margin-left: auto;
+    margin-right: 0.75rem;
 }
 
 .bd.right {
-  margin-left: auto;
-  border-radius: 30px 0 0 30px;
+    margin-left: auto;
+    border-radius: 30px 0 0 30px;
+}
+
+.delete {
+    margin-left: auto;
+    height: 1.8rem;
+}
+
+@media (min-width: 632px) {
+    .content {
+        width: auto;
+        max-width: 500px;
+        flex-grow: 1;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    #inputs {
+        width: calc(100% - 2rem);
+        border-radius: 30px;
+    }
+    #title {
+        width: calc(100% - 4rem);
+        border-radius: 30px;
+    }
+    .bd,
+    .bd.right {
+        width: fit-content;
+        border-radius: 30px;
+        margin: 3rem auto;
+    }
+    .bd-content {
+        display: flex;
+    }
+    .bd-col {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        text-align: center;
+        justify-content: space-evenly;
+        gap: 3rem;
+        align-items: center;
+    }
+    .bd-info {
+        font-size: 18px;
+    }
+    .bd-title {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    #title {
+        text-align: center;
+        padding: 1rem 2rem;
+        width: fit-content;
+        margin: 2rem auto;
+    }
 }
